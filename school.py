@@ -37,12 +37,14 @@ class Test:
         self.type = type
         self.grade = grade
 
+students = []  # List to store Student instances
 
 def add_student():
     first_name = input("Enter student's first name: ")
     last_name = input("Enter student's last name: ")
     age = int(input("Enter student's age: "))
     student = Student(f"{first_name} {last_name}", age)
+    students.append(student)  # Add student instance to the list
     print("Student added successfully.")
 
 def update_student_activity():
