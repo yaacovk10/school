@@ -75,6 +75,39 @@ def print_all_students(students_list):
     print("Students sorted by average:")
     for student, avg in sorted_students:
         print(f"{student.first_name} {student.last_name}: Average = {avg:.2f}")
+
+def print_strongest_student(students_list):
+    max_avg = -1
+    strongest_student = None
+
+    for student in students_list:
+        avg = student.average()
+        if avg > max_avg:
+            max_avg = avg
+            strongest_student = student
+
+    if strongest_student:
+        print(f"Strongest student: {strongest_student.first_name} {strongest_student.last_name}")
+        print(f"Average: {max_avg:.2f}")
+    else:
+        print("No students found.")
+
+def print_lowest_student(students_list):
+    min_avg = float('inf')
+    lowest_student = None
+
+    for student in students_list:
+        avg = student.average()
+        if avg < min_avg:
+            min_avg = avg
+            lowest_student = student
+
+    if lowest_student:
+        print(f"Lowest student: {lowest_student.first_name} {lowest_student.last_name}")
+        print(f"Average: {min_avg:.2f}")
+    else:
+        print("No students found.")
+    
             
         
 def display_menu():
@@ -86,8 +119,8 @@ def display_menu():
         if user_selection == Action.ADD_STUDENT: add_student()
         if user_selection == Action.UPDATE_STUDENT_ACTIVITY:update_student_activity()
         if user_selection == Action.PRINT_ALL:print_all_students(students)
-        if user_selection == Action.PRINT_BAD_STUDENT:pass
-        if user_selection == Action.PRINT_BEST_STUDENT:pass
+        if user_selection == Action.PRINT_BAD_STUDENT:print_lowest_student(students)
+        if user_selection == Action.PRINT_BEST_STUDENT:print_strongest_student(students)
             
     
 
