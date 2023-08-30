@@ -62,6 +62,20 @@ def update_student_activity():
     
     if not found:
         print("Student not found.")
+
+def print_all_students(students_list):
+    student_averages = []
+
+    for student in students_list:
+        avg = student.average()
+        student_averages.append((student, avg))
+
+    sorted_students = sorted(student_averages, key=lambda x: x[1], reverse=True)
+
+    print("Students sorted by average:")
+    for student, avg in sorted_students:
+        print(f"{student.first_name} {student.last_name}: Average = {avg:.2f}")
+            
         
 def display_menu():
     while(True):
