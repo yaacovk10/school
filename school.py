@@ -109,13 +109,28 @@ def print_lowest_student(students_list):
         print("No students found.")
     
             
-        
+ def save_students_to_pickle(students_list, filename):
+    with open(filename, 'wb') as file:
+        pickle.dump(students_list, file)
+
+def load_students_from_pickle(filename):
+    try:
+        with open(filename, 'rb') as file:
+            students_list = pickle.load(file)
+        return students_list
+    except FileNotFoundError:
+        return []
+
+
 def display_menu():
+    students = load_students_from_pickle("students.pkl")  # Load students at the beginning
     while(True):
         for action in Action:
             print(f"{action.value}- {action.name.replace('_', ' ')}")
         user_selection = Action( int( input("what 2 do?")))
-        if user_selection == Action.EXIT: return
+        if user_selection == Action.EXIT:
+            save_students_to_pickle(students, "students.pkl")  # Save students at the end
+            return
         if user_selection == Action.ADD_STUDENT: add_student()
         if user_selection == Action.UPDATE_STUDENT_ACTIVITY:update_student_activity()
         if user_selection == Action.PRINT_ALL:print_all_students(students)
