@@ -45,6 +45,22 @@ def add_student():
     student = Student(f"{first_name} {last_name}", age)
     print("Student added successfully.")
 
+def update_student_activity():
+    student_name = input("Enter student's full name: ")
+    found = False
+    
+    for student in students:
+        if student_name == student.first_name + " " + student.last_name:
+            found = True
+            test_type = input("Enter test type: ")
+            test_grade = float(input("Enter test grade: "))
+            student.add_test(test_type, test_grade)
+            print("Test result added successfully.")
+            break
+    
+    if not found:
+        print("Student not found.")
+        
 def display_menu():
     while(True):
         for action in Action:
