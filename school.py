@@ -85,7 +85,7 @@ def display_menu():
         if user_selection == Action.EXIT: return
         if user_selection == Action.ADD_STUDENT: add_student()
         if user_selection == Action.UPDATE_STUDENT_ACTIVITY:update_student_activity()
-        if user_selection == Action.PRINT_ALL:pass
+        if user_selection == Action.PRINT_ALL:print_all_students(students)
         if user_selection == Action.PRINT_BAD_STUDENT:pass
         if user_selection == Action.PRINT_BEST_STUDENT:pass
             
