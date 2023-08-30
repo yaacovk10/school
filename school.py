@@ -68,7 +68,7 @@ def display_menu():
         user_selection = Action( int( input("what 2 do?")))
         if user_selection == Action.EXIT: return
         if user_selection == Action.ADD_STUDENT: add_student()
-        if user_selection == Action.UPDATE_STUDENT_ACTIVITY:pass
+        if user_selection == Action.UPDATE_STUDENT_ACTIVITY:update_student_activity()
         if user_selection == Action.PRINT_ALL:pass
         if user_selection == Action.PRINT_BAD_STUDENT:pass
         if user_selection == Action.PRINT_BEST_STUDENT:pass
